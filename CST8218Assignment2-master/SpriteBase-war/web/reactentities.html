@@ -25,7 +25,7 @@
         
         
         getContacts(){
-         fetch("http://192.168.203.128:8080/SpriteBase-war/webresources/cst8218.base0001.entity.sprite",{
+         fetch("http://192.168.0.219:8080/SpriteBase-war/webresources/cst8218.base0001.entity.sprite",{
             headers: {'Accept': 'application/json'}})
             .then(res =>res.json())
             .then(resjson => this.setState ({contacts: resjson}));
