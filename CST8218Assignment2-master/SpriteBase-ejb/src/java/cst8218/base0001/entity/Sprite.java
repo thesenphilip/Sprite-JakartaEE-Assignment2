@@ -14,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -46,8 +47,10 @@ public class Sprite implements Serializable {
     @Column
     private int panelHeight;
     @Column
+    @Min(0)
     private int x;
     @Column
+    @Min(0)
     private int y;
     @Column
     private int dx;
