@@ -62,7 +62,7 @@ public class SpriteFacadeREST extends cst8218.base0001.entity.AbstractFacade<Spr
     }
 
     @javax.ws.rs.GET
-   // @RolesAllowed({"Admin","RestGroup"})
+    @RolesAllowed({"Admin","RestGroup"})
     @Override
     @javax.ws.rs.Produces({javax.ws.rs.core.MediaType.APPLICATION_XML, javax.ws.rs.core.MediaType.APPLICATION_JSON})
     public List<Sprite> findAll() {
