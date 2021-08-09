@@ -1,7 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* CST 8218-303 Assignment 2
+ * Due: August 10th, 2021 
+ * Group: 
+ *  Phil Thesen     40797646
+ *  Zach Dubuc      40725060
+ *  Jonathan Wenek  40488779
  */
 package cst8218.base0001.service;
 
@@ -18,7 +20,7 @@ import javax.persistence.PersistenceContext;
  */
 @javax.ejb.Stateless
 @javax.ws.rs.Path("cst8218.base0001.entity.sprite")
-@DeclareRoles({"Admin", "RestGroup"})
+@DeclareRoles({"Admin", "RestGroup"}) // added role annotations to support authentication restrictions
 public class SpriteFacadeREST extends cst8218.base0001.entity.AbstractFacade<Sprite> {
 
     @PersistenceContext(unitName = "SpriteBasePU")
@@ -29,7 +31,7 @@ public class SpriteFacadeREST extends cst8218.base0001.entity.AbstractFacade<Spr
     }
 
     @javax.ws.rs.POST
-    @RolesAllowed({"Admin","RestGroup"})
+    @RolesAllowed({"Admin","RestGroup"}) // restrict by role
     @Override
     @javax.ws.rs.Consumes({javax.ws.rs.core.MediaType.APPLICATION_XML, javax.ws.rs.core.MediaType.APPLICATION_JSON})
     public void create(Sprite entity) {
@@ -37,7 +39,7 @@ public class SpriteFacadeREST extends cst8218.base0001.entity.AbstractFacade<Spr
     }
 
     @javax.ws.rs.PUT
-    @RolesAllowed({"Admin","RestGroup"})
+    @RolesAllowed({"Admin","RestGroup"}) // restrict by role
     @javax.ws.rs.Path("{id}")
     @javax.ws.rs.Consumes({javax.ws.rs.core.MediaType.APPLICATION_XML, javax.ws.rs.core.MediaType.APPLICATION_JSON})
     public void edit(@javax.ws.rs.PathParam("id") Long id, Sprite entity) {
@@ -45,14 +47,14 @@ public class SpriteFacadeREST extends cst8218.base0001.entity.AbstractFacade<Spr
     }
 
     @javax.ws.rs.DELETE
-    @RolesAllowed({"Admin","RestGroup"})
+    @RolesAllowed({"Admin","RestGroup"}) // restrict by role
     @javax.ws.rs.Path("{id}")
     public void remove(@javax.ws.rs.PathParam("id") Long id) {
         super.remove(super.find(id));
     }
 
     @javax.ws.rs.GET
-    @RolesAllowed({"Admin","RestGroup"})
+    @RolesAllowed({"Admin","RestGroup"}) // restrict by role
     @javax.ws.rs.Path("{id}")
     @javax.ws.rs.Produces({javax.ws.rs.core.MediaType.APPLICATION_XML, javax.ws.rs.core.MediaType.APPLICATION_JSON})
     public Sprite find(@javax.ws.rs.PathParam("id") Long id) {
@@ -68,7 +70,7 @@ public class SpriteFacadeREST extends cst8218.base0001.entity.AbstractFacade<Spr
     }
 
     @javax.ws.rs.GET
-    @RolesAllowed({"Admin","RestGroup"})
+    @RolesAllowed({"Admin","RestGroup"}) // restrict by role
     @javax.ws.rs.Path("{from}/{to}")
     @javax.ws.rs.Produces({javax.ws.rs.core.MediaType.APPLICATION_XML, javax.ws.rs.core.MediaType.APPLICATION_JSON})
     public List<Sprite> findRange(@javax.ws.rs.PathParam("from") Integer from, @javax.ws.rs.PathParam("to") Integer to) {
@@ -76,7 +78,7 @@ public class SpriteFacadeREST extends cst8218.base0001.entity.AbstractFacade<Spr
     }
 
     @javax.ws.rs.GET
-    @RolesAllowed({"Admin","RestGroup"})
+    @RolesAllowed({"Admin","RestGroup"}) // restrict by role
     @javax.ws.rs.Path("count")
     @javax.ws.rs.Produces(javax.ws.rs.core.MediaType.TEXT_PLAIN)
     public String countREST() {

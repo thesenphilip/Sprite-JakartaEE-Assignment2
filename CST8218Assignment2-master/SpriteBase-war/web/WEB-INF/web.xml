@@ -23,43 +23,31 @@
 	<welcome-file-list>
 		<welcome-file>faces/index.xhtml</welcome-file>
 	</welcome-file-list>
-	<!--security-constraint >
-		<display-name>AdminConstraint</display-name>
-		<web-resource-collection>
-			<web-resource-name>moviedbadmin</web-resource-name >
-			<description>Administration area</description>
-			<url-pattern>/faces/sprite/*</url-pattern>
-		</web-resource-collection>
-                < added to for authentication on the sprite page >
-		<auth-constraint>
-			<description>Basic Constraint</description>
-			<role-name>Admin</role-name>
-			<role-name>JsfGroup</role-name>
-		</auth-constraint>
-	</security-constraint -->
+        <!-- authentication constraints for Admin role -->
         <security-constraint>
-        <display-name>AdminConstraint</display-name>
-        <web-resource-collection>
-            <web-resource-name>webresources</web-resource-name>
-            <description>Administration area</description>
-            <url-pattern>/faces/sprite/*</url-pattern>
-            <url-pattern>/faces/appUser/*</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <description>Admin Constraint</description>
-            <role-name>Admin</role-name>
-        </auth-constraint>
-     </security-constraint>
-        <security-constraint>
-        <display-name>JSFConstraint</display-name>
-        <web-resource-collection>
-            <web-resource-name>webresources</web-resource-name>
-            <description>JSF area</description>
-            <url-pattern>/faces/sprite/*</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <description>JSF Constraint</description>
-            <role-name>JsfGroup</role-name>
-        </auth-constraint>
-    </security-constraint>
+            <display-name>AdminConstraint</display-name>
+            <web-resource-collection>
+                <web-resource-name>webresources</web-resource-name>
+                <description>Administration area</description>
+                <url-pattern>/faces/sprite/*</url-pattern>
+                <url-pattern>/faces/appUser/*</url-pattern>
+            </web-resource-collection>
+            <auth-constraint>
+                <description>Admin Constraint</description>
+                <role-name>Admin</role-name>
+            </auth-constraint>
+            <!-- authentication constraints added for JsfGroup role -->
+            </security-constraint>
+               <security-constraint>
+               <display-name>JSFConstraint</display-name>
+               <web-resource-collection>
+                   <web-resource-name>webresources</web-resource-name>
+                   <description>JSF area</description>
+                   <url-pattern>/faces/sprite/*</url-pattern>
+               </web-resource-collection>
+               <auth-constraint>
+                   <description>JSF Constraint</description>
+                   <role-name>JsfGroup</role-name>
+               </auth-constraint>
+           </security-constraint>
 </web-app>

@@ -1,7 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* CST 8218-303 Assignment 2
+ * Due: August 10th, 2021 
+ * Group: 
+ *  Phil Thesen     40797646
+ *  Zach Dubuc      40725060
+ *  Jonathan Wenek  40488779
  */
 package cst8218.base0001.entity;
 
@@ -47,10 +49,10 @@ public class Sprite implements Serializable {
     @Column
     private int panelHeight;
     @Column
-    @Min(0)
+    @Min(0) // added min constraint to prevent negative values
     private int x;
     @Column
-    @Min(0)
+    @Min(0) // added min constraint to prevent negative values
     private int y;
     @Column
     private int dx;
