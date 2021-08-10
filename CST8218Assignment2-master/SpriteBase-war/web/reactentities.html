@@ -15,33 +15,31 @@
   // Obtain the root
     const rootElement = document.getElementById('root');
 // Create a ES6 class component class
-    class ContactList extends React.Component {
+    class SpriteList extends React.Component {
  // Use the render function to return JSX component
         constructor(props) {
           super(props);
-          this.state= {count: "", contactsstring: "", contacts: []};
+          this.state= {count: "", contactsstring: "", sprites: []};
 
         }
         
-        
-        getContacts(){
+        getSprites(){
          fetch("http://192.168.0.219:8080/SpriteBase-war/webresources/cst8218.base0001.entity.sprite",{
-            headers: {'Accept': 'application/json'}})
+            headers: {'Accept': 'application/json', 'Access-Control-Allow-Origin': '*'},
+            authorization: { 'Username': 'wenekrest', 'Password': '1234' }})
             .then(res =>res.json())
-            .then(resjson => this.setState ({contacts: resjson}));
+            .then(resjson => this.setState ({sprites: resjson}));
   
         }
-
         
         componentDidMount(){
-            this.getContacts();
+            this.getSprites();
         }
 
-
   render() {
-    const valuesArray = this.state.contacts;
+    const valuesArray = this.state.sprites;
     return (
-      <div className="contact-list">
+      <div className="sprite-list">
         <h1>Sprite List {this.props.name}</h1>
             <ul>
                 <li>count: {this.state.count}</li>
@@ -56,7 +54,7 @@
   function App() {
     return (
       <div>
-        <ContactList name="Using React!" />
+        <SpriteList name="Using React!" />
       </div>
     )
   }
