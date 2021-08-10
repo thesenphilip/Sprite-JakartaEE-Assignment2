@@ -17,6 +17,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.security.enterprise.identitystore.PasswordHash;
 import javax.security.enterprise.identitystore.Pbkdf2PasswordHash;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -33,6 +34,7 @@ public class AppUser implements Serializable {
     @Basic(optional = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
+    @Min(0)
     private long id;
     @Column
     private String userid;
